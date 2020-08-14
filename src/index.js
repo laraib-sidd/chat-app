@@ -12,12 +12,11 @@ const publiDirectoryPath = path.join(__dirname, "../public");
 
 app.use(express.static(publiDirectoryPath));
 
-const mes = "welcome";
 io.on("connection", (socket) => {
-	console.log("New Web socket connection");
-	socket.emit("welcome", mes);
-	io.on("message", (me) => {
-		console.log("mes", me);
+	socket.emit("message", "Welcome!");
+    
+    socket.on("sendMessage", (mes) => {
+		console.log("mes", mes);
 	});
 });
 
