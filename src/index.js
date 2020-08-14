@@ -12,8 +12,11 @@ const publiDirectoryPath = path.join(__dirname, "../public");
 
 app.use(express.static(publiDirectoryPath));
 
-io.on("connection", () => {
+let count = 0;
+
+io.on("connection", (socket) => {
 	console.log("New Web socket connection");
+	socket.emit(count);
 });
 
 server.listen(port, () => {
