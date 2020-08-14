@@ -19,6 +19,8 @@ document.querySelector("#send-location").addEventListener("click", () => {
 		if (err) {
 			console.log(err);
 		}
-		console.log(suc.coords);
+		latitude = position.coords.latitude;
+		longitude = position.coords.longitude;
+		socket.emit("sendLocation", [latitude, longitude]);
 	});
 });
