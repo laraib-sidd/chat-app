@@ -16,8 +16,8 @@ const mes = "welcome";
 io.on("connection", (socket) => {
 	console.log("New Web socket connection");
 	socket.emit("welcome", mes);
-	io.on("message", (mes) => {
-		console.log(mes);
+	io.on("message", (me) => {
+		console.log(me);
 	});
 });
 
