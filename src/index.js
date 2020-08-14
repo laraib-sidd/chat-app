@@ -16,9 +16,9 @@ const mes = "welcome";
 io.on("connection", (socket) => {
 	console.log("New Web socket connection");
 	socket.emit("welcome", mes);
-	socket.on("message", (me) => {
-		console.log(me);
-	});
+});
+io.on("message", (me) => {
+	console.log("mes", me);
 });
 
 server.listen(port, () => {
