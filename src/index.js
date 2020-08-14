@@ -22,6 +22,10 @@ io.on("connection", (socket) => {
 	socket.on("disconnect", () => {
 		io.emit("message", "A user has left");
 	});
+	io.emit('sendLocation',(location)=>{
+		console.log('Latitude',location[0]);
+		console.log('Longitude',location[1]);
+	})
 });
 
 server.listen(port, () => {
