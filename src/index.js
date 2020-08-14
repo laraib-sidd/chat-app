@@ -14,9 +14,9 @@ app.use(express.static(publiDirectoryPath));
 
 io.on("connection", (socket) => {
 	socket.emit("message", "Welcome!");
-    
-    socket.on("sendMessage", (message) => {
-		console.log(message);
+
+	socket.on("sendMessage", (message) => {
+		io.emit("message", message);
 	});
 });
 
