@@ -23,8 +23,8 @@ io.on("connection", (socket) => {
 		io.emit("message", "A user has left");
 	});
 	socket.on('sendLocation',(location)=>{
-		console.log('Latitude',location[0]);
-		console.log('Longitude',location[1]);
+		io.emit('message',`Latitude ${location[0]}`)
+		io.emit('message',`Logitude ${location[1]}`)
 	})
 });
 
