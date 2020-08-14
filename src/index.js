@@ -12,15 +12,10 @@ const publiDirectoryPath = path.join(__dirname, "../public");
 
 app.use(express.static(publiDirectoryPath));
 
-let count = 0;
-
+const mes = "welcome";
 io.on("connection", (socket) => {
 	console.log("New Web socket connection");
-	socket.emit("countUpdated", count);
-	socket.on("increment", () => {
-		count++;
-		io.emit("countUpdated", count);
-	});
+	socket.emit("message", mes);
 });
 
 server.listen(port, () => {
