@@ -15,7 +15,10 @@ app.use(express.static(publiDirectoryPath));
 const mes = "welcome";
 io.on("connection", (socket) => {
 	console.log("New Web socket connection");
-	socket.emit("message", mes);
+	socket.emit("welcome", mes);
+	io.on("message", (mes) => {
+		console.log(mes);
+	});
 });
 
 server.listen(port, () => {

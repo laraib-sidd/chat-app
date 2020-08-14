@@ -4,9 +4,10 @@ const inp = document.querySelector("input");
 const bt = document.querySelector("button");
 
 bt.addEventListener("click", () => {
-	console.log(inp.value);
+    const mes = inp.value;
+    socket.emit('message',mes)
 });
 
-socket.on("message", (mes) => {
-	h1.innerText = mes;
+socket.on("welcome", (mes) => {
+	console.log(mes);
 });
