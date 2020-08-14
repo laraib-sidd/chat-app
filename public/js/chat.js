@@ -15,4 +15,10 @@ document.querySelector("#send-location").addEventListener("click", () => {
 	if (!navigator.geolocation) {
 		alert("Geolocation is not supported by your browser");
 	}
+	navigator.geolocation.getCurrentPosition((suc, err) => {
+		if (err) {
+			console.log(err);
+		}
+		console.log(suc);
+	});
 });
