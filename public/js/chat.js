@@ -12,5 +12,7 @@ document.querySelector("#form-message").addEventListener("submit", (e) => {
 });
 
 document.querySelector("#send-location").addEventListener("click", () => {
-	console.log(navigator.geolocation);
+	if (!navigator.geolocation) {
+		alert("Geolocation is not supported by your browser");
+	}
 });
