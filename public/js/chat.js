@@ -2,7 +2,7 @@ const socket = io();
 const inp = document.querySelector("input");
 const bt = document.querySelector("button");
 
-socket.on("welcome", (mes) => {
+socket.on("message", (mes) => {
 	console.log(mes);
 });
 
