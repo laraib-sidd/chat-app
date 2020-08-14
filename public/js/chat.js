@@ -1,2 +1,4 @@
 const socket = io();
-console.log(socket.on("countUpdated"));
+socket.on("countUpdated", () => {
+	console.log("The count has been updated");
+});
