@@ -1,2 +1,1 @@
-io()
-console.log(io.count);
+const socket = io();
