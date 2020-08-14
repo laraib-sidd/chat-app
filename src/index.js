@@ -16,7 +16,7 @@ let count = 0;
 
 io.on("connection", (socket) => {
 	console.log("New Web socket connection");
-	socket.emit("counteUpdated", count);
+	socket.emit("counteUpdated");
 });
 
 server.listen(port, () => {
