@@ -13,7 +13,7 @@ const messageTemplate = document.querySelector("#message-template");
 socket.on("message", (mes) => {
 	console.log(mes);
 	const html = Mustache.render(messageTemplate);
-	$messages.insertAdjacentHTML(html);
+	$messages.insertAdjacentHTML('beforeend	',html);
 });
 
 $messageForm.addEventListener("submit", (e) => {
