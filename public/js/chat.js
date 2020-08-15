@@ -12,10 +12,11 @@ $messageForm.addEventListener("submit", (e) => {
 	e.preventDefault();
 
 	// disabelForm
-	$messageForm.setAttribute('disabled','disabled')
+	$messageForm.setAttribute("disabled", "disabled");
 
 	const message = $messageFormInput.value;
 	socket.emit("sendMessage", message, (error) => {
+		$messageForm.setAttribute("disabled", "enabled");
 		if (error) {
 			return console.log(error);
 		}
