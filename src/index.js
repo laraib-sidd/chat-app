@@ -19,7 +19,6 @@ io.on("connection", (socket) => {
 
 	socket.on("sendMessage", (message, callback) => {
 		const filter = new Filter();
-		console.log(filter.replaceWord(message));
 		if (filter.isProfane(message)) {
 			return callback("Profanity is not allowed");
 		}
