@@ -29,6 +29,7 @@ $messageForm.addEventListener("submit", (e) => {
 });
 
 $locationButton.addEventListener("click", () => {
+	$locationButton.setAttribute("disabled", "disabled");
 	if (!navigator.geolocation) {
 		alert("Geolocation is not supported by your browser");
 	}
@@ -43,6 +44,7 @@ $locationButton.addEventListener("click", () => {
 				longitude: position.coords.longitude,
 			},
 			() => {
+				$locationButton.removeAttribute("disabled");
 				console.log("Location Shared");
 			}
 		);
