@@ -8,11 +8,18 @@
 	</head>
 	<body>
 		<h1>Chat-App</h1>
+		<div id="messages"></div>
 		<form id="form-message">
 			<input name="message" type="text" placeholder="Message" />
 			<button>Send</button>
 		</form>
 		<button id="send-location">Send Location</button>
+
+		<script id="message-template" type="text/html">
+			<div>
+				<p>This is a message</p>
+			</div>
+		</script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
