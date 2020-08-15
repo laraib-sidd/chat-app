@@ -18,6 +18,8 @@ socket.on("message", (message) => {
 
 socket.on("locationMessage", (url) => {
 	console.log(url);
+	const html = Mustache.render(messageTemplate, { url });
+	$messages.insertAdjacentHTML("beforeend", html);
 });
 
 $messageForm.addEventListener("submit", (e) => {
