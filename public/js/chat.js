@@ -1,9 +1,11 @@
 const socket = io();
 // elements
+
 const $messageForm = document.querySelector("#form-message");
 const $messageFormInput = $messageForm.querySelector("input");
 const $messageFormButton = $messageForm.querySelector("button");
 const $sendLocationButton = document.querySelector("#send-location");
+const $messages = document.querySelector("#messages");
 
 socket.on("message", (mes) => {
 	console.log(mes);
