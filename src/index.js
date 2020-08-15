@@ -16,8 +16,9 @@ io.on("connection", (socket) => {
 	socket.emit("message", "Welcome!");
 	socket.broadcast.emit("message", "A new user has entered");
 
-	socket.on("sendMessage", (message) => {
+	socket.on("sendMessage", (message,callback) => {
 		io.emit("message", message);
+		callback()
 	});
 	socket.on("disconnect", () => {
 		io.emit("message", "A user has left");
