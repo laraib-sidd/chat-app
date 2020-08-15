@@ -8,8 +8,10 @@ document.querySelector("#form-message").addEventListener("submit", (e) => {
 	e.preventDefault();
 
 	const message = e.target.elements.message.value;
-	socket.emit("sendMessage", message,()=>{
-		console.log('The message has been delivered');
+	socket.emit("sendMessage", message, (error) => {
+		if (error) {
+			console.log(error);
+		}
 	});
 });
 
@@ -24,6 +26,6 @@ document.querySelector("#send-location").addEventListener("click", () => {
 		socket.emit("sendLocation", {
 			latitude: position.coords.latitude,
 			longitude: position.coords.longitude,
-		});	
+		});
 	});
 });
