@@ -8,10 +8,10 @@ const $sendLocationButton = document.querySelector("#send-location");
 const $messages = document.querySelector("#messages");
 
 // Templates
-const messageTemplate = document.querySelector("#message-template");
+const messageTemplate = document.querySelector("#message-template").innerHTML;
 
-socket.on("message", (mes) => {
-	console.log(mes);
+socket.on("message", (message) => {
+	console.log(message);
 	const html = Mustache.render(messageTemplate);
 	$messages.insertAdjacentHTML('beforeend	',html);
 });
