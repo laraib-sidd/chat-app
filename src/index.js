@@ -28,11 +28,12 @@ io.on("connection", (socket) => {
 	socket.on("disconnect", () => {
 		io.emit("message", "A user has left");
 	});
-	socket.on("sendLocation", (coords) => {
+	socket.on("sendLocation", (coords,callback) => {
 		io.emit(
 			"message",
 			`Location: https://google.com/maps?q=${coords["latitude"]},${coords["longitude"]}`
 		);
+		callback()
 	});
 });
 
