@@ -10,7 +10,7 @@ document.querySelector("#form-message").addEventListener("submit", (e) => {
 	const message = e.target.elements.message.value;
 	socket.emit("sendMessage", message, (error) => {
 		if (error) {
-			console.log(error);
+			return console.log(error);
 		}
 	});
 });
