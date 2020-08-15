@@ -8,10 +8,12 @@ const $sendLocationButton = document.querySelector("#send-location");
 const $messages = document.querySelector("#messages");
 
 // Templates
-const messageTemplate = document.querySelector('#message-template')
+const messageTemplate = document.querySelector("#message-template");
 
 socket.on("message", (mes) => {
 	console.log(mes);
+	const html = Mustache.render(messageTemplate);
+	$messages.insertAdjacentHTML(html);
 });
 
 $messageForm.addEventListener("submit", (e) => {
