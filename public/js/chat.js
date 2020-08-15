@@ -29,10 +29,11 @@ $messageForm.addEventListener("submit", (e) => {
 });
 
 $sendLocationButton.addEventListener("click", () => {
-	$sendLocationButton.setAttribute("disabled", "disabled");
 	if (!navigator.geolocation) {
 		alert("Geolocation is not supported by your browser");
 	}
+
+	$sendLocationButton.setAttribute("disabled", "disabled");
 	navigator.geolocation.getCurrentPosition((position, error) => {
 		if (error) {
 			console.log(err);
