@@ -25,7 +25,7 @@ $messageForm.addEventListener("submit", (e) => {
 	});
 });
 
-$messageFormButton.addEventListener("click", () => {
+$locationButton.addEventListener("click", () => {
 	if (!navigator.geolocation) {
 		alert("Geolocation is not supported by your browser");
 	}
