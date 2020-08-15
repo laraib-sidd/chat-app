@@ -18,7 +18,7 @@ $messageForm.addEventListener("submit", (e) => {
 	const message = $messageFormInput.value;
 	socket.emit("sendMessage", message, (error) => {
 		$messageFormButton.removeAttribute("disabled");
-		$messageFormInput = "";
+		$messageFormInput.value = "";
 		if (error) {
 			return console.log(error);
 		}
