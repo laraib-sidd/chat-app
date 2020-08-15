@@ -3,6 +3,7 @@ const socket = io();
 const $messageForm = document.querySelector("#form-message");
 const $messageFormInput = $messageForm.querySelector("input");
 const $messageFormButton = $messageForm.querySelector("#send-location");
+const $locationButton = document.querySelector("#send-location");
 
 socket.on("message", (mes) => {
 	console.log(mes);
@@ -12,11 +13,11 @@ $messageForm.addEventListener("submit", (e) => {
 	e.preventDefault();
 
 	// disabelForm
-	$messageForm.setAttribute("disabled", "disabled");
+	$messageFormButton.setAttribute("disabled", "disabled");
 
 	const message = $messageFormInput.value;
 	socket.emit("sendMessage", message, (error) => {
-		$messageForm.removeAttribute("disabled");
+		// $messageForm.removeAttribute("disabled");
 		if (error) {
 			return console.log(error);
 		}
@@ -24,7 +25,7 @@ $messageForm.addEventListener("submit", (e) => {
 	});
 });
 
-$locationButton.addEventListener("click", () => {
+$messageFormButton.addEventListener("click", () => {
 	if (!navigator.geolocation) {
 		alert("Geolocation is not supported by your browser");
 	}
