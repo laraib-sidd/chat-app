@@ -10,6 +10,11 @@ const addUser = ({ id, username, room }) => {
 			error: "Username and room are required",
 		};
 	}
+
+	// Check for existing User
+	const existingUser = users.find((user) => {
+		return user.room === room && user.username === username;
+	});
 };
 const removeUser = () => {};
 const getUser = () => {};
