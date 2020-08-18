@@ -20,6 +20,8 @@ const { username, room } = Qs.parse(location.search, {
 	ignoreQueryPrefix: true,
 });
 
+const autoscroll = () => {};
+
 socket.on("message", (message) => {
 	console.log(message);
 	const html = Mustache.render(messageTemplate, {
