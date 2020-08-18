@@ -34,6 +34,7 @@ io.on("connection", (socket) => {
 		socket.broadcast
 			.to(room)
 			.emit("message", generateMessage(`${username} has joined ${room}`));
+		callback();
 	});
 	socket.on("sendMessage", (message, callback) => {
 		const filter = new Filter();
