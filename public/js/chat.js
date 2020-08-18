@@ -38,6 +38,10 @@ socket.on("locationMessage", (message) => {
 	$messages.insertAdjacentHTML("beforeend", html);
 });
 
+socket.on('roomData',({room,users})=>{
+
+})
+
 $messageForm.addEventListener("submit", (e) => {
 	e.preventDefault();
 
