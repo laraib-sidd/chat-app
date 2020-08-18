@@ -45,6 +45,7 @@ socket.on("roomData", ({ room, users }) => {
 		room,
 		users,
 	});
+	$sidebar.insertAdjacentHTML("beforeend", html);
 });
 
 $messageForm.addEventListener("submit", (e) => {
