@@ -12,6 +12,7 @@ const messageTemplate = document.querySelector("#message-template").innerHTML;
 const locationMessageTemplate = document.querySelector(
 	"#location-message-template"
 ).innerHTML;
+const sidebarTemplate = document.querySelector("#sidebar-template").innerHTML;
 
 // Options
 const { username, room } = Qs.parse(location.search, {
@@ -38,9 +39,7 @@ socket.on("locationMessage", (message) => {
 	$messages.insertAdjacentHTML("beforeend", html);
 });
 
-socket.on('roomData',({room,users})=>{
-
-})
+socket.on("roomData", ({ room, users }) => {});
 
 $messageForm.addEventListener("submit", (e) => {
 	e.preventDefault();
