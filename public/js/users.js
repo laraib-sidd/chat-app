@@ -22,6 +22,9 @@ const addUser = ({ id, username, room }) => {
 			error: "Username is in use.",
 		};
 	}
+
+	// Store User
+	const user = { id, username, room };
 };
 const removeUser = () => {};
 const getUser = () => {};
