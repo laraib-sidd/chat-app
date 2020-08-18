@@ -14,7 +14,9 @@ const locationMessageTemplate = document.querySelector(
 ).innerHTML;
 
 // Options
-qs.parse(location.search, { ignoreQueryPrefix: true });
+const { username, room } = qs.parse(location.search, {
+	ignoreQueryPrefix: true,
+});
 
 socket.on("message", (message) => {
 	console.log(message);
@@ -76,3 +78,5 @@ $sendLocationButton.addEventListener("click", () => {
 		);
 	});
 });
+
+socket.emit("join", { username, room });
