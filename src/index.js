@@ -27,7 +27,7 @@ io.on("connection", (socket) => {
 		callback();
 	});
 	socket.on("disconnect", () => {
-		io.emit("message", "A user has left");
+		io.emit("message", generateMessage("A user has left"));
 	});
 	socket.on("sendLocation", (coords, callback) => {
 		io.emit(
