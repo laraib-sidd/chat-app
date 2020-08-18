@@ -30,7 +30,10 @@ const autoscroll = () => {
 	const newMessageHeight = $newMessage.offsetHeight + newMessageMargin;
 
 	// Visible height
-	const containerHeight = $messages.offsetHeight;
+	const visibleHeight = $messages.offsetHeight;
+
+	// Height of the message container
+	const containerHeight = $messages.scrollHeight;
 
 	// How far have i scrolled?
 	const scrollOffset = $messages.scrollTop + visibleHeight;
@@ -59,7 +62,7 @@ socket.on("locationMessage", (message) => {
 		createdAt: moment(message.createdAt).format("HH:mm"),
 	});
 	$messages.insertAdjacentHTML("beforeend", html);
-	autoscroll();
+	// autoscroll();
 });
 
 socket.on("roomData", ({ room, users }) => {
