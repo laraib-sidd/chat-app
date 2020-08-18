@@ -35,20 +35,12 @@ const removeUser = (id) => {
 	}
 };
 const getUser = (id) => {
-	const user = users.find((user) => user.id === id);
-	if (!user) {
-		return undefined;
-	}
-	return user;
+	return users.find((user) => user.id === id);
 };
 
 const getUsersInRoom = (room) => {
 	room = room.trim().toLowerCase();
-	const userInRoom = users.filter((user) => user.room === room);
-	if (!userInRoom) {
-		return [];
-	}
-	return userInRoom;
+	return users.filter((user) => user.room === room);
 };
 
 module.exports = {
