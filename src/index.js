@@ -16,7 +16,7 @@ app.use(express.static(publiDirectoryPath));
 
 io.on("connection", (socket) => {
 	socket.emit("message", generateMessage("Welcome!"));
-	socket.broadcast.emit("message", "A new user has entered");
+	socket.broadcast.emit("message", generateMessage("A new user has entered"));
 
 	socket.on("sendMessage", (message, callback) => {
 		const filter = new Filter();
