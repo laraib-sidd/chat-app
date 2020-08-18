@@ -41,7 +41,14 @@ const getUser = (id) => {
 	}
 	return user;
 };
-const getUsersInRoom = () => {};
+
+const getUsersInRoom = (room) => {
+	const userInRoom = users.find((user = user.room === room));
+	if (!userInRoom) {
+		return [];
+	}
+	return userInRoom;
+};
 
 module.exports = {
 	addUser,
