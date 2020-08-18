@@ -28,7 +28,7 @@ io.on("connection", (socket) => {
 		socket.join(room);
 		const { error, user } = addUser({ id: socket.id, username, room });
 		if (error) {
-			callback(error);
+			return callback(error);
 		}
 		socket.emit("message", generateMessage("Welcome!"));
 		socket.broadcast
