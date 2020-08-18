@@ -32,10 +32,14 @@ io.on("connection", (socket) => {
 			return callback(error);
 		}
 
+		socket.join(user.room);
 		socket.emit("message", generateMessage("Welcome!"));
 		socket.broadcast
-			.to(room)
-			.emit("message", generateMessage(`${username} has joined ${room}`));
+			.to(user.room)
+			.emit(
+				"message",
+				generateMessage(`${user.username} has joined ${user.room}`)
+			);
 		callback();
 	});
 
