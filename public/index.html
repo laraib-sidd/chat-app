@@ -10,15 +10,15 @@
 	<body>
 		<div class="chat">
 			<div class="chat__sidebar"></div>
-			<div class="chat__main"><h1>Chat-App</h1></div>
+			<div class="chat__main">
+				<div id="messages"></div>
+				<form id="form-message">
+					<input name="message" type="text" placeholder="Message" />
+					<button>Send</button>
+				</form>
+				<button id="send-location">Send Location</button>
+			</div>
 		</div>
-		<div id="messages"></div>
-		<form id="form-message">
-			<input name="message" type="text" placeholder="Message" />
-			<button>Send</button>
-		</form>
-		<button id="send-location">Send Location</button>
-
 		<script id="message-template" type="text/html">
 			<div>
 				<p>{{createdAt}} - {{message}}</p>
