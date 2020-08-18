@@ -24,11 +24,11 @@ const publiDirectoryPath = path.join(__dirname, "../public");
 app.use(express.static(publiDirectoryPath));
 
 io.on("connection", (socket) => {
-	socket.on("join", ({ username, room }) => {
+	socket.on("join", ({ username, room }, callback) => {
 		socket.join(room);
 		const { error, user } = addUser({ id: socket.id, username, room });
 		if (error) {
-			socket.emit("message", generateMessage(errr));
+			callback(error);
 		}
 		socket.emit("message", generateMessage("Welcome!"));
 		socket.broadcast
