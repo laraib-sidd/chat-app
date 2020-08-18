@@ -43,6 +43,7 @@ const getUser = (id) => {
 };
 
 const getUsersInRoom = (room) => {
+	room = room.trim().toLowerCase();
 	const userInRoom = users.filter((user) => user.room === room);
 	if (!userInRoom) {
 		return [];
