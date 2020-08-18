@@ -27,20 +27,25 @@ io.on("connection", (socket) => {
 	socket.on("join", ({ username, room }, callback) => {
 		socket.join(room);
 		const { error, user } = addUser({ id: socket.id, username, room });
+
 		if (error) {
 			return callback(error);
 		}
+
 		socket.emit("message", generateMessage("Welcome!"));
 		socket.broadcast
 			.to(room)
 			.emit("message", generateMessage(`${username} has joined ${room}`));
 		callback();
 	});
+
 	socket.on("sendMessage", (message, callback) => {
 		const filter = new Filter();
+
 		if (filter.isProfane(message)) {
 			return callback("Profanity is not allowed");
 		}
+
 		io.emit("message", generateMessage(message));
 		callback();
 	});
