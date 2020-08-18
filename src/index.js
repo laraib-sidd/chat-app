@@ -18,9 +18,14 @@ const publiDirectoryPath = path.join(__dirname, "../public");
 app.use(express.static(publiDirectoryPath));
 
 io.on("connection", (socket) => {
-	socket.emit("message", generateMessage("Welcome!"));
-	socket.broadcast.emit("message", generateMessage("A new user has entered"));
-
+	socket.on("join", ({ username, root }) => {
+		socket.join(room);
+		socket.emit("message", generateMessage("Welcome!"));
+		socket.broadcast.emit(
+			"message",
+			generateMessage("A new user has entered")
+		);
+	});
 	socket.on("sendMessage", (message, callback) => {
 		const filter = new Filter();
 		if (filter.isProfane(message)) {
