@@ -14,8 +14,8 @@ const locationMessageTemplate = document.querySelector(
 ).innerHTML;
 
 socket.on("message", (message) => {
-	console.log(message);
-	const html = Mustache.render(messageTemplate, { message });
+	console.log(message.text);
+	const html = Mustache.render(messageTemplate, { message.text });
 	$messages.insertAdjacentHTML("beforeend", html);
 });
 
