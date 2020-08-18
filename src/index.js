@@ -3,6 +3,7 @@ const express = require("express");
 const http = require("http");
 const socketio = require("socket.io");
 const Filter = require("bad-words");
+const { generateMessage } = require("./utils/messages");
 
 const app = express();
 const server = http.createServer(app);
@@ -14,7 +15,7 @@ const publiDirectoryPath = path.join(__dirname, "../public");
 app.use(express.static(publiDirectoryPath));
 
 io.on("connection", (socket) => {
-	socket.emit("message", "Welcome!");
+	socket.emit("message", generateMessage("Welcome!"));
 	socket.broadcast.emit("message", "A new user has entered");
 
 	socket.on("sendMessage", (message, callback) => {
