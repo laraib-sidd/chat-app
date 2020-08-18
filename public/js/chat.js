@@ -39,7 +39,11 @@ socket.on("locationMessage", (message) => {
 	$messages.insertAdjacentHTML("beforeend", html);
 });
 
-socket.on("roomData", ({ room, users }) => {});
+socket.on("roomData", ({ room, users }) => {
+	const html = Mustache.render(sidebarTemplate,{
+		room,users
+	})
+});
 
 $messageForm.addEventListener("submit", (e) => {
 	e.preventDefault();
