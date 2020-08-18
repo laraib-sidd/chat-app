@@ -34,7 +34,13 @@ const removeUser = (id) => {
 		return users.splice(index, 1)[0];
 	}
 };
-const getUser = () => {};
+const getUser = (id) => {
+	const user = users.find((user) => user.id === id);
+	if (!user) {
+		return undefined;
+	}
+	return user;
+};
 const getUsersInRoom = () => {};
 
 module.exports = {
