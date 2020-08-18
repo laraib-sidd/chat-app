@@ -14,7 +14,7 @@ const locationMessageTemplate = document.querySelector(
 ).innerHTML;
 
 // Options
-const { username, room } = qs.parse(location.search, {
+const { username, room } = Qs.parse(location.search, {
 	ignoreQueryPrefix: true,
 });
 
