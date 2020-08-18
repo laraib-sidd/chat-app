@@ -15,6 +15,13 @@ const addUser = ({ id, username, room }) => {
 	const existingUser = users.find((user) => {
 		return user.room === room && user.username === username;
 	});
+
+	// Validate Username
+	if (existingUser) {
+		return {
+			error: "Username is in use.",
+		};
+	}
 };
 const removeUser = () => {};
 const getUser = () => {};
