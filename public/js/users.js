@@ -43,7 +43,7 @@ const getUser = (id) => {
 };
 
 const getUsersInRoom = (room) => {
-	const userInRoom = users.find((user = user.room === room));
+	const userInRoom = users.filter((user) => user.room === room);
 	if (!userInRoom) {
 		return [];
 	}
