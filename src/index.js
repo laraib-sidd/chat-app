@@ -18,13 +18,12 @@ const publiDirectoryPath = path.join(__dirname, "../public");
 app.use(express.static(publiDirectoryPath));
 
 io.on("connection", (socket) => {
-	socket.on("join", ({ username, root }) => {
+	socket.on("join", ({ username, room }) => {
 		socket.join(room);
 		socket.emit("message", generateMessage("Welcome!"));
-		socket.broadcast.emit(
-			"message",
-			generateMessage("A new user has entered")
-		);
+		socket.broadcast
+			.to(room)
+			.emit("message", generateMessage("A new user has entered"));
 	});
 	socket.on("sendMessage", (message, callback) => {
 		const filter = new Filter();
