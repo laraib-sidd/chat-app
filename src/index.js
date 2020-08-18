@@ -7,7 +7,12 @@ const {
 	generateMessage,
 	generateLocationMessage,
 } = require("./utils/messages");
-const { addUser, removeUser, getUser, getUsersInRoom } = require("./utils/users");
+const {
+	addUser,
+	removeUser,
+	getUser,
+	getUsersInRoom,
+} = require("./utils/users");
 
 const app = express();
 const server = http.createServer(app);
@@ -21,6 +26,7 @@ app.use(express.static(publiDirectoryPath));
 io.on("connection", (socket) => {
 	socket.on("join", ({ username, room }) => {
 		socket.join(room);
+		const { error, user } = addUser({ id: socket.id, username, room });
 		socket.emit("message", generateMessage("Welcome!"));
 		socket.broadcast
 			.to(room)
