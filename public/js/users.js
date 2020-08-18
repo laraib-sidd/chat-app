@@ -25,6 +25,8 @@ const addUser = ({ id, username, room }) => {
 
 	// Store User
 	const user = { id, username, room };
+	users.push(user);
+	return { user };
 };
 const removeUser = () => {};
 const getUser = () => {};
