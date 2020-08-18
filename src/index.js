@@ -23,7 +23,7 @@ io.on("connection", (socket) => {
 		socket.emit("message", generateMessage("Welcome!"));
 		socket.broadcast
 			.to(room)
-			.emit("message", generateMessage("A new user has entered"));
+			.emit("message", generateMessage(`${username} has joined ${room}`));
 	});
 	socket.on("sendMessage", (message, callback) => {
 		const filter = new Filter();
