@@ -77,7 +77,7 @@ I highly recommend to use [Netlify](https://netlify.com) to achieve this on the 
 
 ## Status
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2365af6f-820a-4fb8-83e6-69a66f686dfe/deploy-status)](https://app.netlify.com/sites/gatsby-simplefolio/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0cf5cde3-24ec-4929-9f19-ce5e0ef6adf3/deploy-status)](https://app.netlify.com/sites/laraib-sidd/deploys)
 
 ## License 📄
 
